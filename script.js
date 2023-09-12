@@ -1,38 +1,57 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var pwdLenght = 0;//store password choice here
-var expression1 = (passwordChoice <= 128);
-var expression2 = (passwordChoice >= 8);
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var specialCharacter = ['[','`','!','@','#','$','%','^','&','*','(',')','_','+','-','=','[',']','{','}',';',"'",':','"','\\','|',',','.'];
+var passwordOptions = 0; //store password choice here
+var characterOptions = ""; //store characters here
+var generatedPassword = "";
+for (var i = 0; i < passwordLength; i++) {
+  var randomIndex = Math.floor(Math.random() * passwordLength.length);
+  password += characterType[randomIndex] * specialCharacter,numberOptions.length;
+  password += letterType [randomIndex] * lowerCase,upperCase.length;
+}
+return password;
 
-function generatePassword(){
-  for (let index = 8; index < 128; index++) {
-    console.log(i, pwdLenght[index]);
-    
+var characterType = {
+specialCharacter: "[","`","!","@","#","$","%","^","&","*","(",")","_","+","-","=","[","]","{","}",";","'",":",'"',"\\","|",",",".",
+numberOptions: 0,1,2,3,4,5,6,7,8,9
+}
+var letterType = {
+lowerCase: "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+upperCase: "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+}
+
+function generatePassword() {
+  var passwordLength = window.prompt(
+    "How long do you want your password to be? (>=8, <=128):"
+  );
+  console.log(passwordLength);
+    if (passwordLength <= 128 && passwordLength >= 8) {
+      console.log("Password lenght is valid");
+    } else {
+      alert("Password must be between 8 and 128 characters");
+      return;
+    }
+
+function characterType () {
+  var characterChoice = window.prompt (
+    "Do you want character types included in your password? (Note, for a secure password, use a combination of numbers and symbols):")
+  console.log (characterChoice);
+  if (characterChoice == true) {
+    console.log("Randomized character types will be included");
+  } else {
+    alert("Please include at least one number and one symbol");
+    return;
   }
-  //create for loop using math.random
-  //Add conditional statement for the lenght which starts with if (passwordlenght >8)
-  //if (password lenght < 128) to trigger an event {if pass greater than 128, send message back}
-  //conditional statement to check for input value
+}
 
-  //use the confirm method (true or false, boelon value) if user wants lowercase
-  //do they want uppercase, numeric values, special characters (all in confirm method) will need var arrays.
-
-  //End function with return statement
-  //create object that looks like a json to store passwordOptions {lenght:; specialCharacters} the user selected
-  //this object will store the password lenght, and if the user selected special characters (must have one, if none return to function and include conditional statement)
-
-  //Password data to be stored in passwordOptions
-  //Create a function that will randomly select variable created earlier
-  //create functions for lowercase, uppercase, password lenght
-  //could use MAth.random to select a random index from an array
-
-  //make sure you push gathered data from password options object.
-  //push data to array, initially this array is empty - call it var generatedPassword = []
-  //all information inputted by user will be sent to array
-  //concatenate method used here to join multiple strings together
+function letterType () {
+  var letterChoice = window.prompt ("How many lower case letters do you want included? (Note, to provide a secure password, this generator will randomize upper and lower case letters")
+console.log (letterChoice);
+if (letterChoice >=8 && letterChoice <=128 ) {
+  console.log("Amount of letters cannot exceed submitted password lenght. Please select an amount of" + passwordOptions);
+} else {
+  alert ("Randomized letters will be included");
+  return;
+}
 }
 
 // Write password to the #password input
@@ -41,18 +60,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-var passwordChoice = window.prompt ("How long do you want your password to be? (>=8, <=128):");
-console.log(passwordChoice)
-function lenghtCheck(){
-  if(expression1 && expression2 === true){
-    console.log(passwordChoice)
-  }
-  else if(expression1 && expression2 === false){
-    window.prompt ("Password must be 8 to 128 characters in lenght")
-  }
-}
