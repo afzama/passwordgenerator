@@ -1,5 +1,5 @@
 # passwordgenerator
-MAPassGenerator
+
 Overview
 This provides a secure password generator tool that helps you generate strong passwords. It allows you to customize your passwords by selecting options for uppercase letters, lowercase letters, numbers, and special characters. You can also choose the length of the password (between 8 and 128 characters) to create a unique and complex password that meets your requirements.
 
