@@ -9,3 +9,9 @@ Features
 3. Secure password generation algorithm that creates unique and complex passwords
 4. User-friendly interface that makes it easy to generate passwords quickly
 5. Cross-browser compatibility (works on all modern browsers)
+
+Published Github Pages
+https://afzama.github.io/passwordgenerator/
+
+Github Repository
+https://github.com/afzama/passwordgenerator
